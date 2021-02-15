@@ -11,8 +11,8 @@ function TodoComponent(props){
         
                 <input type="checkbox"  id={"box"+props.item.id}checked={props.item.isCompleted} onChange={() => props.handleChange(props.item.id)} />
                 <label htmlFor={"box"+props.item.id}> {props.item.text}</label>
-                <button onClick={() => props.handleDelete(props.item.id)}>  Delete</button>
                 <button onClick={() => props.handleEdit(props.item.id)}>  Edit</button>
+                <button onClick={() => props.handleDelete(props.item.id)}>  Delete</button>
             
         </div>
     )

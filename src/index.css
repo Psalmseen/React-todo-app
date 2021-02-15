@@ -1,0 +1,90 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background: #333;
+    padding: 0 2rem;
+}
+.header{
+    background: #524932;
+    padding: 2rem 0;
+    text-align: center;
+    margin-bottom: 3rem;
+    border-radius: 1rem;
+}
+form{
+    padding:1rem;
+    background: #53704893;
+    border-radius: 5px;
+    margin-bottom: 3rem;
+}
+.todo-input{
+    padding:  1rem 2rem;
+    width: 95%;
+    font-size: 1.5rem;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 0 1rem 3rem rgba(255,255,255,.2);
+    outline: none;
+    transition: all .2s;
+}
+
+.todo-input:hover{
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 0 1rem 4rem rgba(255,255,255,.2);
+    width: 100%;
+}
+
+::placeholder{
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    font-weight: 100;
+    letter-spacing: 1px;
+    color: chocolate;
+}
+.btn-wrapper{
+    display: block;
+    width: 95%;
+    margin:0 auto;
+    text-align: end;
+}
+button{
+    display: inline-block;
+    padding: .75rem 2.5rem;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    margin-left: auto;
+    text-align: right;
+    transition: all .3s;
+}
+
+button:hover{
+    background: #7cc16093;
+    border-radius: 5rem;
+}
+.todo-container{
+    background: #09151593;
+    padding: 1rem;
+    font-size: 1.5rem;
+    text-transform: capitalize;
+    border-radius: 1rem;
+}
+.todo-item{
+    margin:1rem .5rem;
+    border-radius: 9px;
+    color: #eee;
+    transition: all .2s;
+    padding: .5rem;
+    display: grid ;
+    grid-template-columns: min-content 1fr repeat(2, min-content) ;
+    align-items: center;
+}
+.todo-item > *{
+    margin:0 .5rem;
+}

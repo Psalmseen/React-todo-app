@@ -29,7 +29,7 @@ class App extends Component{
         this.setState({
             allTodos: presentTodo
         })
-        console.log(this.state.allTodos)
+        
     }
     handleEdit(id){
         const editedTodo = this.state.allTodos.filter(todo => todo.id !== id)
@@ -39,7 +39,7 @@ class App extends Component{
             currentTodo:text.text,
             allTodos: properEditedTodo
         })
-        console.log(this.state.allTodos)
+        
     }
     handleCheck(id){
         
@@ -80,7 +80,6 @@ class App extends Component{
         
     }
     render(){
-        console.log(this.state.allTodos)
         return (
             <div>
                 <Header />

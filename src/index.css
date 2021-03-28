@@ -9,7 +9,12 @@ body{
     font-size: 1rem;
 }
 .header{
-    background: #524932;
+    background: #09151593;
+    color: #EEE;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    word-spacing: 5px;
+    font-weight:100;
     padding: 2rem 0;
     text-align: center;
     margin-bottom: 3rem;
@@ -17,7 +22,7 @@ body{
 }
 form{
     padding:1rem;
-    background: #53704893;
+    background: #09151593;
     border-radius: 5px;
     margin-bottom: 3rem;
 }
@@ -30,14 +35,14 @@ form{
     display: block;
     border: none;
     border-radius: 1rem;
-    box-shadow: 0 1rem 3rem rgba(255,255,255,.2);
+    box-shadow: 0 0rem 3rem rgba(255,255,255,.2);
     outline: none;
     transition: all .2s;
 }
 
 .todo-input:hover{
     transform: translateY(-2px) scale(1.01);
-    box-shadow: 0 1rem 4rem rgba(255,255,255,.2);
+    box-shadow: 0 0rem 4rem rgba(255,255,255,.2);
     width: 100%;
 }
 
@@ -46,7 +51,7 @@ form{
     text-transform: uppercase;
     font-weight: 100;
     letter-spacing: 1px;
-    color: chocolate;
+    color: #d2691ea7;
 }
 .btn-wrapper{
     display: block;
@@ -64,21 +69,26 @@ button{
     margin-left: auto;
     text-align: right;
     transition: all .3s;
+    
 }
 
 button:hover{
-    background: #7cc16093;
+    background: #09151593;
+    box-shadow: 0 0rem 1rem rgba(255,255,255,.2);
     border-radius: 5rem;
+}
+.del:hover{
+    background: #ff0000db;
+    box-shadow: none;
 }
 .todo-container{
     background: #09151593;
     padding: 1rem;
-    font-size: 1.5rem;
     text-transform: capitalize;
     border-radius: 1rem;
 }
 .todo-item{
-    margin:1rem .5rem;
+    margin:2rem;
     border-radius: 9px;
     color: #eee;
     transition: all .2s;
@@ -88,8 +98,24 @@ button:hover{
     align-items: center;
 }
 .todo-item > *{
-    margin:0 .5rem;
+    margin:1rem;
 }
+.todo-item > button{
+    font-size: .7rem;
+    padding: .6rem 1.5rem;
+}
+.todo-text{
+    font-size: 3rem;
+}
+.editing{
+    opacity: 0;
+    transform: translateY(-1rem);
+}
+.deleted{
+    opacity: 0;
+    transform: scale(0);
+}
+
 @media only screen and (max-width: 900px){
     html{
         font-size: 62.5%;

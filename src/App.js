@@ -25,20 +25,55 @@ class App extends Component{
         localStorage.setItem('state', JSON.stringify(this.state));
     }
     handleDelete(id){
-        const presentTodo = this.state.allTodos.filter(todo => todo.id !== id)
-        this.setState({
-            allTodos: presentTodo
+        // set isDeleted to animate deleted todo
+        const recentlyDeleted = this.state.allTodos.map(todo => {
+            if(id === todo.id){
+                return {
+                    ...todo,
+                    isDeleted: !todo.isDeleted
+                }
+            }
+            return todo
         })
+
+        this.setState({
+            allTodos: recentlyDeleted
+        })
+
+        // handles delete after animation
+        setTimeout(() => {   
+            const presentTodo = this.state.allTodos.filter(todo => todo.id !== id)
+            this.setState({
+                allTodos: presentTodo
+            })
+        }, 250);
         
     }
     handleEdit(id){
-        const editedTodo = this.state.allTodos.filter(todo => todo.id !== id)
-        const properEditedTodo = editedTodo.map((todo, i) => {return {...todo, id: i} })
-        const [text] = this.state.allTodos.filter(todo => todo.id === id )
-        this.setState({
-            currentTodo:text.text,
-            allTodos: properEditedTodo
+        // sets isEditing to animate the editing function
+        const recentlyEdited = this.state.allTodos.map(todo => {
+            if(id === todo.id){
+                return {
+                    ...todo,
+                    isEditing: !todo.isEditing
+                }
+            }
+            return todo
         })
+
+        this.setState({
+            allTodos: recentlyEdited
+        })
+        // moves the todo item to the input box after animation
+        setTimeout(() => {
+            const editedTodo = this.state.allTodos.filter(todo => todo.id !== id)
+            const properEditedTodo = editedTodo.map((todo, i) => {return {...todo, id: i} })
+            const [text] = this.state.allTodos.filter(todo => todo.id === id )
+            this.setState({
+                currentTodo:text.text,
+                allTodos: properEditedTodo
+            })
+        }, 150);
         
     }
     handleCheck(id){
@@ -71,7 +106,9 @@ class App extends Component{
             const newTodo = {
                 text: todotext,
                 isCompleted: false,
-                id: todoId
+                id: todoId,
+                isEditing: false,
+                isDeleted: false
             }
             const updatedTodo = [...this.state.allTodos, newTodo]
             this.setState({ allTodos : updatedTodo, currentTodo: "" })
